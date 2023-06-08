@@ -1,4 +1,4 @@
-import { IsString, IsNotEmpty, IsNumber, IsArray } from 'class-validator';
+import { IsString, IsNotEmpty, IsNumber, IsArray } from "class-validator";
 
 export class UserCart {
   // @IsString()
@@ -21,7 +21,7 @@ export class CartUser {
 
   @IsString()
   @IsNotEmpty()
-  product_name: string;
+  name: string;
 
   @IsString()
   @IsNotEmpty()
@@ -38,8 +38,4 @@ export class CartUser {
   @IsString()
   @IsNotEmpty()
   color: string;
-
-  @IsString()
-  @IsNotEmpty()
-  size: string;
 }

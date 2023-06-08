@@ -1,6 +1,6 @@
-import { Injectable } from '@nestjs/common';
-import { PrismaService } from 'src/prisma/prisma.service';
-import { ProductDto } from './dto';
+import { Injectable } from "@nestjs/common";
+import { PrismaService } from "src/prisma/prisma.service";
+import { ProductDto } from "./dto";
 
 @Injectable()
 export class ProductService {
@@ -12,20 +12,21 @@ export class ProductService {
   }
 
   // GET PRODUCT BY ID
-  getProductById(id: string) {
+  getProductById(id: number) {
+    const parseId = +id;
     return this.prisma.product.findUnique({
-      where: { id },
+      where: { id: parseId },
     });
   }
 
   // SEARCH PRODUCTS BY NAME
   searchByName(classify: string) {
     return this.prisma.product.findMany({
-      where: {
-        classify: {
-          contains: classify,
-        },
-      },
+      // where: {
+      //   classify: {
+      //     contains: classify ,
+      //   },
+      // },
     });
   }
 
@@ -34,24 +35,23 @@ export class ProductService {
     try {
       await this.prisma.product.create({
         data: {
-          product_name: dto.product_name,
+          id: dto.id,
+          name: dto.name,
           price: dto.price,
           quantity: dto.quantity,
-          size: dto.size,
           color: dto.color,
           description: dto.description,
-          category: dto.category,
           classify: dto.classify,
           image_url: dto.image_url,
-          comment: dto.comment,
-          new_arrival: dto.new_arrival,
+          properties: dto.properties,
+          user_group: dto.user_group,
         },
       });
 
       // RETURN TEXT
-      return 'THÊM SẢN PHẨM MỚI THÀNH CÔNG';
+      return "THÊM SẢN PHẨM MỚI THÀNH CÔNG";
     } catch (err) {
-      return 'LỖI SERVER';
+      return "LỖI SERVER";
     }
   }
 }

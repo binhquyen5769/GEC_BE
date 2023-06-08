@@ -6,12 +6,18 @@ import {
   IsObject,
   IsString,
   IsBoolean,
-} from 'class-validator';
+} from "class-validator";
 
 export class ProductDto {
+  id: number;
+
+  properties: string;
+
+  user_group: string;
+
   @IsString()
   @IsNotEmpty()
-  product_name: string;
+  name: string;
 
   @IsNumber()
   @IsNotEmpty()
@@ -21,10 +27,6 @@ export class ProductDto {
   @IsNumber()
   @IsNotEmpty()
   quantity: number;
-
-  @IsArray()
-  @IsNotEmpty()
-  size: [];
 
   @IsArray()
   @IsNotEmpty()
@@ -38,11 +40,9 @@ export class ProductDto {
   @IsNotEmpty()
   category: string;
 
-  @IsString()
   @IsNotEmpty()
   classify: string;
 
-  @IsObject()
   @IsNotEmpty()
   image_url: object;
 
@@ -50,7 +50,7 @@ export class ProductDto {
   @IsNotEmpty()
   comment: [];
 
-  @IsBoolean()
-  @IsNotEmpty()
-  new_arrival: boolean;
+  // @IsBoolean()
+  // @IsNotEmpty()
+  // new_arrival: boolean;
 }

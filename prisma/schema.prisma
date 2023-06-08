@@ -20,18 +20,16 @@ model User {
 }
 
 model Product {
-  id           String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
-  product_name String   @db.VarChar(255)
+  id           Int @id
+  name String   @db.VarChar(255)
   price        Int
   quantity     Int
-  size         Json
   color        Json
   description  Json
-  category     String   @db.VarChar(255)
-  classify     String   @db.VarChar(255)
+  properties   Json
+  user_group   Json
   image_url    Json
-  comment      Json
-  new_arrival  Boolean  @db.Boolean
+  classify     Json
   createdAt    DateTime @default(now())
 
   @@map("products")
