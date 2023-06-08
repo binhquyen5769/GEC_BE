@@ -22,11 +22,11 @@ export class ProductService {
   // SEARCH PRODUCTS BY NAME
   searchByName(classify: string) {
     return this.prisma.product.findMany({
-      // where: {
-      //   classify: {
-      //     contains: classify ,
-      //   },
-      // },
+      where: {
+        name: {
+          contains: classify,
+        },
+      },
     });
   }
 
