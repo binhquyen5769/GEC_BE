@@ -15,6 +15,8 @@ export class ProductDto {
 
   user_group: string;
 
+  image_url: string;
+
   @IsString()
   @IsNotEmpty()
   name: string;
@@ -42,9 +44,6 @@ export class ProductDto {
 
   @IsNotEmpty()
   classify: string;
-
-  @IsNotEmpty()
-  image_url: object;
 
   @IsArray()
   @IsNotEmpty()
