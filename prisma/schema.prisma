@@ -52,3 +52,13 @@ model Banner {
 
   @@map("banners")
 }
+
+model Order {
+  id          String @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  user_id      String
+  orderDetail Json
+  status      String
+  infomation  Json
+
+  @@map("orders")
+}

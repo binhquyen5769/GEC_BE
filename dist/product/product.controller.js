@@ -27,7 +27,7 @@ let ProductController = class ProductController {
         return this.productService.getAllProduct();
     }
     searchByName(classify) {
-        console.log('classify: ', classify);
+        console.log("classify: ", classify);
         return this.productService.searchByName(classify);
     }
     getProductById(id) {
@@ -35,34 +35,34 @@ let ProductController = class ProductController {
     }
 };
 __decorate([
-    (0, common_1.Post)('add/new'),
+    (0, common_1.Post)("add/new"),
     __param(0, (0, common_1.Body)()),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [dto_1.ProductDto]),
     __metadata("design:returntype", void 0)
 ], ProductController.prototype, "addNewProduct", null);
 __decorate([
-    (0, common_1.Get)('all'),
+    (0, common_1.Get)("all"),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", []),
     __metadata("design:returntype", void 0)
 ], ProductController.prototype, "getAllProduct", null);
 __decorate([
-    (0, common_1.Get)('search?'),
-    __param(0, (0, common_1.Query)('classify')),
+    (0, common_1.Get)("search?"),
+    __param(0, (0, common_1.Query)("classify")),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [String]),
     __metadata("design:returntype", void 0)
 ], ProductController.prototype, "searchByName", null);
 __decorate([
-    (0, common_1.Get)(':id'),
-    __param(0, (0, common_1.Param)('id')),
+    (0, common_1.Get)(":id"),
+    __param(0, (0, common_1.Param)("id")),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [String]),
+    __metadata("design:paramtypes", [Number]),
     __metadata("design:returntype", void 0)
 ], ProductController.prototype, "getProductById", null);
 ProductController = __decorate([
-    (0, common_1.Controller)('products'),
+    (0, common_1.Controller)("products"),
     __metadata("design:paramtypes", [product_service_1.ProductService])
 ], ProductController);
 exports.ProductController = ProductController;

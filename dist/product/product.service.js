@@ -20,14 +20,15 @@ let ProductService = class ProductService {
         return this.prisma.product.findMany();
     }
     getProductById(id) {
+        const parseId = +id;
         return this.prisma.product.findUnique({
-            where: { id },
+            where: { id: parseId },
         });
     }
     searchByName(classify) {
         return this.prisma.product.findMany({
             where: {
-                classify: {
+                name: {
                     contains: classify,
                 },
             },
@@ -37,23 +38,22 @@ let ProductService = class ProductService {
         try {
             await this.prisma.product.create({
                 data: {
-                    product_name: dto.product_name,
+                    id: dto.id,
+                    name: dto.name,
                     price: dto.price,
                     quantity: dto.quantity,
-                    size: dto.size,
                     color: dto.color,
                     description: dto.description,
-                    category: dto.category,
                     classify: dto.classify,
                     image_url: dto.image_url,
-                    comment: dto.comment,
-                    new_arrival: dto.new_arrival,
+                    properties: dto.properties,
+                    user_group: dto.user_group,
                 },
             });
-            return 'THÊM SẢN PHẨM MỚI THÀNH CÔNG';
+            return "THÊM SẢN PHẨM MỚI THÀNH CÔNG";
         }
         catch (err) {
-            return 'LỖI SERVER';
+            return "LỖI SERVER";
         }
     }
 };

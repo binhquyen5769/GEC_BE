@@ -17,7 +17,7 @@ __decorate([
     (0, class_validator_1.IsString)(),
     (0, class_validator_1.IsNotEmpty)(),
     __metadata("design:type", String)
-], ProductDto.prototype, "product_name", void 0);
+], ProductDto.prototype, "name", void 0);
 __decorate([
     (0, class_validator_1.IsNumber)(),
     (0, class_validator_1.IsNotEmpty)(),
@@ -29,11 +29,6 @@ __decorate([
     (0, class_validator_1.IsNotEmpty)(),
     __metadata("design:type", Number)
 ], ProductDto.prototype, "quantity", void 0);
-__decorate([
-    (0, class_validator_1.IsArray)(),
-    (0, class_validator_1.IsNotEmpty)(),
-    __metadata("design:type", Array)
-], ProductDto.prototype, "size", void 0);
 __decorate([
     (0, class_validator_1.IsArray)(),
     (0, class_validator_1.IsNotEmpty)(),
@@ -50,24 +45,13 @@ __decorate([
     __metadata("design:type", String)
 ], ProductDto.prototype, "category", void 0);
 __decorate([
-    (0, class_validator_1.IsString)(),
     (0, class_validator_1.IsNotEmpty)(),
     __metadata("design:type", String)
 ], ProductDto.prototype, "classify", void 0);
-__decorate([
-    (0, class_validator_1.IsObject)(),
-    (0, class_validator_1.IsNotEmpty)(),
-    __metadata("design:type", Object)
-], ProductDto.prototype, "image_url", void 0);
 __decorate([
     (0, class_validator_1.IsArray)(),
     (0, class_validator_1.IsNotEmpty)(),
     __metadata("design:type", Array)
 ], ProductDto.prototype, "comment", void 0);
-__decorate([
-    (0, class_validator_1.IsBoolean)(),
-    (0, class_validator_1.IsNotEmpty)(),
-    __metadata("design:type", Boolean)
-], ProductDto.prototype, "new_arrival", void 0);
 exports.ProductDto = ProductDto;
 //# sourceMappingURL=product.dto.js.map

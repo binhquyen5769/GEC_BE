@@ -15,6 +15,7 @@ const prisma_module_1 = require("./prisma/prisma.module");
 const config_1 = require("@nestjs/config");
 const about_module_1 = require("./about/about.module");
 const banner_module_1 = require("./banner/banner.module");
+const order_module_1 = require("./order/order.module");
 let AppModule = class AppModule {
 };
 AppModule = __decorate([
@@ -29,6 +30,7 @@ AppModule = __decorate([
             }),
             about_module_1.AboutModule,
             banner_module_1.BannerModule,
+            order_module_1.OrderModule,
         ],
     })
 ], AppModule);

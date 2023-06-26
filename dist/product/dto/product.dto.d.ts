@@ -1,13 +1,14 @@
 export declare class ProductDto {
-    product_name: string;
+    id: number;
+    properties: string;
+    user_group: string;
+    image_url: string;
+    name: string;
     price: number;
     quantity: number;
-    size: [];
     color: [];
     description: object;
     category: string;
     classify: string;
-    image_url: object;
     comment: [];
-    new_arrival: boolean;
 }
