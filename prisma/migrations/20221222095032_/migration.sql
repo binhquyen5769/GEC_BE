@@ -71,7 +71,8 @@ CREATE TABLE "banners" (
 
 CREATE TABLE "orders" (
     "id" UUID NOT NULL DEFAULT gen_random_uuid(),
-    "user_id" VARCHAR(255),
+    "user_id" uuid,
+    CONSTRAINT "orders_user_id_fkey" FOREIGN KEY ("user_id") REFERENCES "public"."users"("id"),
     "orderDetail" JSONB NOT NULL,
     "status" VARCHAR(255) NOT NULL,
     "infomation" JSONB NOT NULL,

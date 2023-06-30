@@ -8,7 +8,9 @@ export class ProductService {
 
   // GET ALL PRODUCT
   getAllProduct() {
-    return this.prisma.product.findMany();
+    return this.prisma.product.findMany({
+      orderBy: { id: "asc" },
+    });
   }
 
   // GET PRODUCT BY ID
@@ -28,6 +30,19 @@ export class ProductService {
         },
       },
     });
+  }
+
+  async updateProduct(id: any, product: any) {
+    try {
+      await this.prisma.product.update({
+        where: { id: +id },
+        data: product,
+      });
+      return "Update Product Success";
+    } catch (err) {
+      console.log("err", err);
+      return "Update Product Failed";
+    }
   }
 
   // ADD NEW PRODUCT
