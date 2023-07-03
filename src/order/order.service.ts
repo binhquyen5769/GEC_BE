@@ -48,32 +48,16 @@ export class OrderService {
     }
   }
 
-  // EDIT USER BY ID
-  // async editOrderById(id: string, editOrderDto: EditOrderDto) {
-  //   try {
-  //     await this.prisma.order.update({
-  //       where: { id },
-  //       data: editOrderDto,
-  //     });
-  //     return "CHỈNH SỬA THÔNG TIN USER THÀNH CÔNG";
-  //   } catch (err) {
-  //     ("KHÔNG TÌM THẤY ID CỦA USER HOẶC LỖI SERVER");
-  //   }
-  // }
-
-  // ADD CART USER
-  // async updateCartOrder(id: string, cartOrder: []) {
-  //   try {
-  //     return await this.prisma.order.update({
-  //       where: { id },
-  //       data: {
-  //         cart: cartOrder,
-  //       },
-  //     });
-  //   } catch (err) {
-  //     return `KHONG THE UPDATE THONG TIN SAN PHAM`;
-  //   }
-  // }
-
-  // GET DATA CART OF USER BY ID USER
+  async updateStatusOrder({ data }: any) {
+    try {
+      await this.prisma.order.update({
+        where: { id: data.id },
+        data: {
+          status: data.status,
+        },
+      });
+    } catch (err) {
+      return `KHONG THE UPDATE THONG TIN SAN PHAM`;
+    }
+  }
 }

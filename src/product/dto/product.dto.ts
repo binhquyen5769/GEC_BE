@@ -45,10 +45,6 @@ export class ProductDto {
   @IsNotEmpty()
   classify: string;
 
-  @IsArray()
-  @IsNotEmpty()
-  comment: [];
-
   // @IsBoolean()
   // @IsNotEmpty()
   // new_arrival: boolean;

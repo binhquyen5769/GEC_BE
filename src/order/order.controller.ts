@@ -37,6 +37,11 @@ export class OrderController {
     return this.orderService.createOrder(dto);
   }
 
+  @Patch()
+  updateStatusOrder(@Body() dto: any) {
+    return this.orderService.updateStatusOrder(dto);
+  }
+
   // // EDIT ORDER
 
   // @Patch("cart/:id")
