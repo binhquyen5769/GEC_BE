@@ -16,8 +16,8 @@ export class ProductController {
   constructor(private productService: ProductService) {}
 
   // ADD NEW PRODUCT
-  @Post("add/new")
-  addNewProduct(@Body() dto: ProductDto) {
+  @Post()
+  addNewProduct(@Body() dto: any) {
     return this.productService.addNewProduct(dto);
   }
 

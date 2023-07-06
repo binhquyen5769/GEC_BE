@@ -8,7 +8,7 @@ datasource db {
 }
 
 model User {
-  id        String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  id        String   @id @unique @default(dbgenerated("gen_random_uuid()")) @db.Uuid
   email     String   @unique @db.VarChar(255)
   user_name String   @unique @db.VarChar(255)
   password  String   @db.VarChar(255)
@@ -20,7 +20,7 @@ model User {
 }
 
 model Product {
-  id           Int @id
+  id           Int @id @unique @default(autoincrement())
   name String   @db.VarChar(255)
   price        Int
   quantity     Int
@@ -30,6 +30,7 @@ model Product {
   user_group   Json
   image_url    Json
   classify     Json
+  type         Json
   createdAt    DateTime @default(now())
 
   @@map("products")

@@ -49,23 +49,13 @@ export class ProductService {
   async addNewProduct(dto: ProductDto) {
     try {
       await this.prisma.product.create({
-        data: {
-          id: dto.id,
-          name: dto.name,
-          price: dto.price,
-          quantity: dto.quantity,
-          color: dto.color,
-          description: dto.description,
-          classify: dto.classify,
-          image_url: dto.image_url,
-          properties: dto.properties,
-          user_group: dto.user_group,
-        },
+        data: dto,
       });
 
       // RETURN TEXT
       return "THÊM SẢN PHẨM MỚI THÀNH CÔNG";
     } catch (err) {
+      console.log("err", err);
       return "LỖI SERVER";
     }
   }

@@ -6,11 +6,10 @@ import {
   IsObject,
   IsString,
   IsBoolean,
+  IsJSON,
 } from "class-validator";
 
 export class ProductDto {
-  id: number;
-
   properties: string;
 
   user_group: string;
@@ -34,13 +33,8 @@ export class ProductDto {
   @IsNotEmpty()
   color: [];
 
-  @IsObject()
   @IsNotEmpty()
   description: object;
-
-  @IsString()
-  @IsNotEmpty()
-  category: string;
 
   @IsNotEmpty()
   classify: string;
