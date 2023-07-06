@@ -46,7 +46,7 @@ export class ProductService {
   }
 
   // ADD NEW PRODUCT
-  async addNewProduct(dto: ProductDto) {
+  async addNewProduct(dto: any) {
     try {
       await this.prisma.product.create({
         data: dto,
