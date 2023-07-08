@@ -18,7 +18,7 @@ async function bootstrap() {
     })
   );
 
-  await app.listen(process.env.PORT || 5000);
+  await app.listen(process.env.PORT || 3002);
 
   if (module.hot) {
     module.hot.accept();
