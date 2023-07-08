@@ -1,5 +1,3 @@
-import { IsString, IsNotEmpty, IsNumber, IsArray } from "class-validator";
-
 export class Order {
   id: string;
 

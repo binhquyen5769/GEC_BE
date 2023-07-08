@@ -63,3 +63,11 @@ model Order {
 
   @@map("orders")
 }
+
+model WishList {
+  id           Int @id @default(autoincrement())
+  userId       String
+  product_id   Int
+
+  @@map("wish-list")
+}
