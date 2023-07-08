@@ -1,6 +1,6 @@
-import { ValidationPipe } from '@nestjs/common';
-import { NestFactory } from '@nestjs/core';
-import { AppModule } from './app.module';
+import { ValidationPipe } from "@nestjs/common";
+import { NestFactory } from "@nestjs/core";
+import { AppModule } from "./app.module";
 
 declare const module: any;
 
@@ -15,10 +15,10 @@ async function bootstrap() {
     new ValidationPipe({
       // THẰNG WHITE LIST: TRUE THÌ BÊN BACK END CHỈ NHẬN NHỮNG DATA ĐÃ ĐƯỢC KHAI BÁO
       whitelist: true,
-    }),
+    })
   );
 
-  await app.listen(3002);
+  await app.listen(process.env.PORT || 5000);
 
   if (module.hot) {
     module.hot.accept();
