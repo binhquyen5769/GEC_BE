@@ -43,6 +43,19 @@ CREATE TABLE "Banner" (
     CONSTRAINT "Banner_pkey" PRIMARY KEY ("id")
 );
 
+DROP TABLE IF EXISTS "public"."wish-list";
+
+CREATE SEQUENCE IF NOT EXISTS "wish-list_id_seq";
+
+CREATE TABLE "public"."wish-list" (
+    "id" int4 NOT NULL DEFAULT nextval('"wish-list_id_seq"' :: regclass),
+    "userId" uuid NOT NULL,
+    "product_id" numeric NOT NULL,
+    CONSTRAINT "wish-list_userId_fkey" FOREIGN KEY ("userId") REFERENCES "public"."users"("id"),
+    CONSTRAINT "wish-list_product_id_fkey" FOREIGN KEY ("product_id") REFERENCES "public"."products"("id"),
+    PRIMARY KEY ("id")
+);
+
 -- CreateIndex
 CREATE UNIQUE INDEX "User_email_key" ON "User"("email");
 
