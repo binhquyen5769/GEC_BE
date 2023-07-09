@@ -34,7 +34,23 @@ export class OrderService {
 
   async createOrder({ data }: any) {
     const { userInfo, item, address, phoneNumber, userName } = data;
+
     try {
+      Promise.all(
+        item.map(async (i: any) => {
+          await this.prisma.product.update({
+            where: {
+              id: i.id,
+            },
+            data: {
+              quantity: {
+                decrement: i.quantity,
+              },
+            },
+          });
+        })
+      );
+
       await this.prisma.order.create({
         data: {
           user_id: userInfo.id || "",
