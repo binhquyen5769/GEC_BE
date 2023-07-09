@@ -27,6 +27,7 @@ export class ProductService {
       where: {
         name: {
           contains: classify,
+          mode: "insensitive",
         },
       },
     });

@@ -18,9 +18,9 @@ export class WishListController {
     return this.wishListService.getAllWishList();
   }
 
-  @Get()
-  getWishListByUserId(@Body() data: any) {
-    return this.wishListService.getAllWishListByUser(data);
+  @Get(":id")
+  getWishListByUserId(@Param() { id }: any) {
+    return this.wishListService.getAllWishListByUser(id);
   }
 
   @Post()

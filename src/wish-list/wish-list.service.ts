@@ -8,14 +8,15 @@ export class WishListService {
   getAllWishList() {
     return this.prisma.wishList.findMany();
   }
-  async getAllWishListByUser(userId: string) {
+  async getAllWishListByUser(userId: any) {
     console.log("userId", userId);
     const res = await this.prisma.wishList.findMany({
-      where: { userId },
+      where: { userId: userId },
       select: {
         product_id: true,
       },
     });
+
     const arrayId = res.map((obj) => obj.product_id);
     try {
       const favList = await this.prisma.product.findMany({
