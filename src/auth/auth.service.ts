@@ -57,7 +57,8 @@ export class AuthService {
       user.email,
       user.user_name,
       user.createdAt,
-      user.admin
+      user.admin,
+      user.active
     );
   }
   // TẠO JWT TỪ ID VÀ EMAIL
@@ -66,7 +67,8 @@ export class AuthService {
     email: string,
     user_name: string,
     createdAt: Date,
-    admin: boolean
+    admin: boolean,
+    active: boolean
   ): Promise<string> {
     const payload = {
       id,
@@ -74,6 +76,7 @@ export class AuthService {
       user_name,
       createdAt,
       admin,
+      active,
     };
     const secret = this.config.get("JWT_SECRET");
     const token = await this.jwt.signAsync(payload, {
